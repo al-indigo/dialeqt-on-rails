@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @paradigm.word %>
+</p>
+
+<p>
+  <strong>Transcription:</strong>
+  <%= @paradigm.transcription %>
+</p>
+
+<p>
+  <strong>Translation:</strong>
+  <%= @paradigm.translation %>
+</p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @paradigm.word_id %>
+</p>
+
+<%= link_to 'Edit', edit_paradigm_path(@paradigm) %> |
+<%= link_to 'Back', paradigms_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tale.name %>
+</p>
+
+<p>
+  <strong>Tale:</strong>
+  <%= @tale.tale %>
+</p>
+
+<%= link_to 'Edit', edit_tale_path(@tale) %> |
+<%= link_to 'Back', tales_path %>

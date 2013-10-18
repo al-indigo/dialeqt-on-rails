@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  word: MyString
+  transcription: MyString
+  translation: MyString
+  word_id: 1
+
+two:
+  word: MyString
+  transcription: MyString
+  translation: MyString
+  word_id: 1

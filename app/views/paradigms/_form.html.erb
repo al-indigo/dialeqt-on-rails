@@ -1,0 +1,33 @@
+<%= form_for(@paradigm) do |f| %>
+  <% if @paradigm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paradigm.errors.count, "error") %> prohibited this paradigm from being saved:</h2>
+
+      <ul>
+      <% @paradigm.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :word %><br>
+    <%= f.text_field :word %>
+  </div>
+  <div class="field">
+    <%= f.label :transcription %><br>
+    <%= f.text_field :transcription %>
+  </div>
+  <div class="field">
+    <%= f.label :translation %><br>
+    <%= f.text_field :translation %>
+  </div>
+  <div class="field">
+    <%= f.label :word_id %><br>
+    <%= f.number_field :word_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

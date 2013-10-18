@@ -1,0 +1,29 @@
+<h1>Listing tales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tale</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tales.each do |tale| %>
+      <tr>
+        <td><%= tale.name %></td>
+        <td><%= tale.tale %></td>
+        <td><%= link_to 'Show', tale %></td>
+        <td><%= link_to 'Edit', edit_tale_path(tale) %></td>
+        <td><%= link_to 'Destroy', tale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tale', new_tale_path %>

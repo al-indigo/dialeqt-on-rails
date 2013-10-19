@@ -1,4 +1,8 @@
 DialeqtOnRails::Application.routes.draw do
+  resources :attachments
+
+  resources :classifications
+
   resources :authors
 
   resources :tales

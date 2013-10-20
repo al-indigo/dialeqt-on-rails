@@ -69,6 +69,7 @@ class TalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tale_params
-      params.require(:tale).permit(:name, :tale)
+#      params.require(:tale).permit(:name, :tale)
+      params.permit!
     end
 end

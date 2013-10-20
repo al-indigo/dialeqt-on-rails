@@ -69,6 +69,7 @@ class ParadigmsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def paradigm_params
-      params.require(:paradigm).permit(:word, :transcription, :translation, :word_id)
+#      params.require(:paradigm).permit(:word, :transcription, :translation, :word_id)
+      params.permit!
     end
 end

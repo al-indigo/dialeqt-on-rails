@@ -38,7 +38,8 @@ gem 'therubyracer'
 
 gem 'paperclip'
 
-gem 'carrierwave'
+gem 'bootstrap-sass-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

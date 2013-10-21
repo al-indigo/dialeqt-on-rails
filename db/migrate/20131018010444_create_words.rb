@@ -5,7 +5,7 @@ class CreateWords < ActiveRecord::Migration
       t.string :transcription
       t.string :translation
       t.string :tag
-      t.integer :attribute_id
+      t.integer :dictionary_id
 
       t.timestamps
     end

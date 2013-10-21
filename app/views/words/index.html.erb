@@ -7,7 +7,7 @@
       <th>Transcription</th>
       <th>Translation</th>
       <th>Tag</th>
-      <th>Attribute</th>
+      <th>Dictionary</th>
       <th></th>
       <th></th>
       <th></th>
@@ -21,7 +21,7 @@
         <td><%= word.transcription %></td>
         <td><%= word.translation %></td>
         <td><%= word.tag %></td>
-        <td><%= word.attribute_id %></td>
+        <td><%= word.dictionary_id %></td>
         <td><%= link_to 'Show', word %></td>
         <td><%= link_to 'Edit', edit_word_path(word) %></td>
         <td><%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %></td>

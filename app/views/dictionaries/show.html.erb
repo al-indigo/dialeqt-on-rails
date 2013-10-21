@@ -1,0 +1,73 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @dictionary.name %>
+</h2>
+
+<h3>Описание</h3>
+Автор словаря: <%= Author.find(@dictionary.author_id).name %>
+<p><%= @dictionary.description %></p>
+
+
+<table class="table table-striped">
+  <thead>
+   <tr>
+     <td><b>Транскрипция</b></td>
+     <td><b>Перевод</b></td>
+<!--     <td><b>Аудиофайлы</b></td> -->
+
+   </tr>
+  </thead>
+  <tbody>
+  <% @dictionary.words.each do |word| %>
+    <tr>
+
+      <td><%= word.transcription%></td>
+      <td><%= word.translation %></td>
+
+      <td>
+
+            <% word.word_praats.each do |praat| %>
+            <div>
+              <p class="text-muted text-center"><%=praat.description %>
+                <%= link_to("Скачать разметку", praat.markup.url, class: 'btn') %><%= link_to("Скачать звук", praat.sound.url, class: 'btn') %>
+              </p>
+            </div>
+            <% end %>
+
+      </td>
+      <td>
+        <ol class="inline">
+          <% word.word_sounds.each do |sound| %>
+
+              <li><p class="text-muted"><%= sound.description %></p>
+              <audio controls>
+                <source src="<%= sound.sound.url %>">
+                </br>Ваш браузер не поддерживает HTML5, так что звук вы послушать не сможете. Используйте более современный браузер, это безопаснее.
+              </audio></li>
+          <% end %>
+        </ol>
+
+      </td>
+      <td>
+        <%=
+          link_to_if(word.tag.blank?, "") do
+            link_to("Показать связанные слова", word, class: 'btn')
+          end
+        %>
+        <%=
+            link_to_unless(word.paradigms.nil?, "") do
+              link_to("Показать парадигму слова", word, class: 'btn')
+            end
+        %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_dictionary_path(@dictionary) %> |
+<%= link_to 'Back', dictionaries_path %>
+</div>

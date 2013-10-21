@@ -1,0 +1,29 @@
+<h1>Listing paradigm_praats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paradigm</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paradigm_praats.each do |paradigm_praat| %>
+      <tr>
+        <td><%= paradigm_praat.paradigm_id %></td>
+        <td><%= paradigm_praat.description %></td>
+        <td><%= link_to 'Show', paradigm_praat %></td>
+        <td><%= link_to 'Edit', edit_paradigm_praat_path(paradigm_praat) %></td>
+        <td><%= link_to 'Destroy', paradigm_praat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paradigm praat', new_paradigm_praat_path %>

@@ -1,0 +1,29 @@
+<h1>Listing word_praats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @word_praats.each do |word_praat| %>
+      <tr>
+        <td><%= word_praat.word_id %></td>
+        <td><%= word_praat.description %></td>
+        <td><%= link_to 'Show', word_praat %></td>
+        <td><%= link_to 'Edit', edit_word_praat_path(word_praat) %></td>
+        <td><%= link_to 'Destroy', word_praat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Word praat', new_word_praat_path %>

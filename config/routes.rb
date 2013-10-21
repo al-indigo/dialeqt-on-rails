@@ -1,7 +1,15 @@
 DialeqtOnRails::Application.routes.draw do
-  resources :praats
+  resources :paradigm_sounds
 
-  resources :attachments
+  resources :paradigm_praats
+
+  resources :word_praats
+
+  resources :word_sounds
+
+  resources :dictionaries
+
+  root ('dictionaries#index')
 
   resources :classifications
 
@@ -12,8 +20,6 @@ DialeqtOnRails::Application.routes.draw do
   resources :paradigms
 
   resources :words
-
-  resources :attributes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

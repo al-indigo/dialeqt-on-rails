@@ -24,7 +24,7 @@ class WordsController < ApplicationController
   # POST /words
   # POST /words.json
   def create
-    @word = Word.new(word_params)
+    @word = Word.new(word_params[:word])
 
     respond_to do |format|
       if @word.save
@@ -69,7 +69,7 @@ class WordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_params
-#      params.require(:word).permit(:word, :transcription, :translation, :tag, :attribute_id)
+#      params.require(:word).permit(:word, :transcription, :translation, :tag, :dictionary_id)
       params.permit!
     end
 end

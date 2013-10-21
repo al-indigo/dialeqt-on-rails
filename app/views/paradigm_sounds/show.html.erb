@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paradigm:</strong>
+  <%= @paradigm_sound.paradigm_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @paradigm_sound.description %>
+</p>
+
+<%= link_to 'Edit', edit_paradigm_sound_path(@paradigm_sound) %> |
+<%= link_to 'Back', paradigm_sounds_path %>

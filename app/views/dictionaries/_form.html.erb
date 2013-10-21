@@ -1,0 +1,34 @@
+<%= form_for(@dictionary) do |f| %>
+  <% if @dictionary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dictionary.errors.count, "error") %> prohibited this dictionary from being saved:</h2>
+
+      <ul>
+      <% @dictionary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :identifier %><br>
+    <%= f.text_field :identifier %>
+  </div>
+  <div class="field">
+    <%= f.label :author_id %><br>
+<!--    <%= f.number_field :author_id %> -->
+    <%= f.collection_select(:author_id, Author.all, :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @word_sound.word_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @word_sound.description %>
+</p>
+
+<%= link_to 'Edit', edit_word_sound_path(@word_sound) %> |
+<%= link_to 'Back', word_sounds_path %>

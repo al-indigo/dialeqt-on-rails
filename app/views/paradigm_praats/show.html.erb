@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paradigm:</strong>
+  <%= @paradigm_praat.paradigm_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @paradigm_praat.description %>
+</p>
+
+<%= link_to 'Edit', edit_paradigm_praat_path(@paradigm_praat) %> |
+<%= link_to 'Back', paradigm_praats_path %>

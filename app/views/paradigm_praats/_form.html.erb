@@ -1,0 +1,26 @@
+<%= form_for(@paradigm_praat) do |f| %>
+  <% if @paradigm_praat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paradigm_praat.errors.count, "error") %> prohibited this paradigm_praat from being saved:</h2>
+
+      <ul>
+      <% @paradigm_praat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :paradigm_id %><br>
+    <%= f.collection_select(:paradigm_id, Paradigm.all, :id, :transcription) %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field"><%= f.file_field :sound %><%= f.file_field :markup %></div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

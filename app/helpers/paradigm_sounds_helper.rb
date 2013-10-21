@@ -1,0 +1,2 @@
+module ParadigmSoundsHelper
+end

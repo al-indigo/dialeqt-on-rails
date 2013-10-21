@@ -24,7 +24,7 @@ class TalesController < ApplicationController
   # POST /tales
   # POST /tales.json
   def create
-    @tale = Tale.new(tale_params)
+    @tale = Tale.new(tale_params[:tale])
 
     respond_to do |format|
       if @tale.save

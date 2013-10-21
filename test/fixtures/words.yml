@@ -5,11 +5,11 @@ one:
   transcription: MyString
   translation: MyString
   tag: MyString
-  attribute_id: 1
+  dictionary_id: 1
 
 two:
   word: MyString
   transcription: MyString
   translation: MyString
   tag: MyString
-  attribute_id: 1
+  dictionary_id: 1

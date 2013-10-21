@@ -1,0 +1,29 @@
+<h1>Listing paradigm_sounds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Paradigm</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @paradigm_sounds.each do |paradigm_sound| %>
+      <tr>
+        <td><%= paradigm_sound.paradigm_id %></td>
+        <td><%= paradigm_sound.description %></td>
+        <td><%= link_to 'Show', paradigm_sound %></td>
+        <td><%= link_to 'Edit', edit_paradigm_sound_path(paradigm_sound) %></td>
+        <td><%= link_to 'Destroy', paradigm_sound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Paradigm sound', new_paradigm_sound_path %>

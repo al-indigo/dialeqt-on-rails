@@ -24,7 +24,7 @@ class ParadigmsController < ApplicationController
   # POST /paradigms
   # POST /paradigms.json
   def create
-    @paradigm = Paradigm.new(paradigm_params)
+    @paradigm = Paradigm.new(paradigm_params[:paradigm])
 
     respond_to do |format|
       if @paradigm.save

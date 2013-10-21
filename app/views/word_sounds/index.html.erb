@@ -1,0 +1,29 @@
+<h1>Listing word_sounds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Word</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @word_sounds.each do |word_sound| %>
+      <tr>
+        <td><%= word_sound.word_id %></td>
+        <td><%= word_sound.description %></td>
+        <td><%= link_to 'Show', word_sound %></td>
+        <td><%= link_to 'Edit', edit_word_sound_path(word_sound) %></td>
+        <td><%= link_to 'Destroy', word_sound, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Word sound', new_word_sound_path %>

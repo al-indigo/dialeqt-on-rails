@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :word %><br>
-    <%= f.text_field :word %>
-  </div>
+
   <div class="field">
     <%= f.label :transcription %><br>
     <%= f.text_field :transcription %>
@@ -23,10 +20,10 @@
     <%= f.label :translation %><br>
     <%= f.text_field :translation %>
   </div>
-  <div class="field">
-    <%= f.label :word_id %><br>
-    <%= f.number_field :word_id %>
-  </div>
+    <div class="field">
+      <%= f.label :word_id %><br>
+      <%= f.collection_select(:word_id, Word.all, :id, :transcription) %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

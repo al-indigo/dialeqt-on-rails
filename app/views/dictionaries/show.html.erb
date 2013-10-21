@@ -53,11 +53,11 @@
       <td>
         <%=
           link_to_if(word.tag.blank?, "") do
-            link_to("Показать связанные слова", word, class: 'btn')
+            link_to("Показать этимологические связи", word, class: 'btn')
           end
         %>
         <%=
-            link_to_unless(word.paradigms.nil?, "") do
+            link_to_unless(word.paradigms.any?, "") do
               link_to("Показать парадигму слова", word, class: 'btn')
             end
         %>

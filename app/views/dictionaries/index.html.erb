@@ -1,28 +1,27 @@
-<h1>Listing dictionaries</h1>
-
-<table>
+<div class="container">
+<h2>Проект "Реконструкция названий одежды в уральских и алтайских языках"</h2>
+Работа выполнена при поддержке грантов:
+  <ul>
+  <li>Президента РФ МД-6198.2013.6, РГНФ № 11-04-00049а</li>
+  <li>Программы ОИФН Типологическое и историческое изучение языковых явлений в их соотношении с культурной эволюцией, реконструкция культуры по данным языка</li>
+  </ul>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Identifier</th>
-      <th>Author</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Название словаря</th>
     </tr>
   </thead>
 
   <tbody>
     <% @dictionaries.each do |dictionary| %>
       <tr>
-        <td><%= dictionary.name %></td>
-        <td><%= dictionary.description %></td>
-        <td><%= dictionary.identifier %></td>
+        <td><%= link_to dictionary.name, dictionary %></td>
+        <!--        <td><%= dictionary.description %></td>
+                <td><%= dictionary.identifier %></td>
         <td><%= dictionary.author_id %></td>
-        <td><%= link_to 'Show', dictionary %></td>
+         <td><%= link_to 'Show', dictionary %></td>
         <td><%= link_to 'Edit', edit_dictionary_path(dictionary) %></td>
-        <td><%= link_to 'Destroy', dictionary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', dictionary, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +29,5 @@
 
 <br>
 
-<%= link_to 'New Dictionary', new_dictionary_path %>
+<!-- <%= link_to 'New Dictionary', new_dictionary_path %> -->
+</div>

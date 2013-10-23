@@ -20,7 +20,7 @@
    </tr>
   </thead>
   <tbody>
-  <% @dictionary.words.each do |word| %>
+  <% @words.each do |word| %>
     <tr>
 
       <td><%= word.transcription%></td>
@@ -70,4 +70,5 @@
 
 <%= link_to 'Edit', edit_dictionary_path(@dictionary) %> |
 <%= link_to 'Back', dictionaries_path %>
+<%= will_paginate @words %>
 </div>

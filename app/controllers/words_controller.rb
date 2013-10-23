@@ -4,7 +4,8 @@ class WordsController < ApplicationController
   # GET /words
   # GET /words.json
   def index
-    @words = Word.all
+#    @words = Word.all
+    @words = Word.paginate(:page => params[:page], :per_page => 15)
   end
 
   # GET /words/1

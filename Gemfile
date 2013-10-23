@@ -40,6 +40,7 @@ gem 'paperclip'
 
 gem 'bootstrap-sass-rails'
 
+gem 'will_paginate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

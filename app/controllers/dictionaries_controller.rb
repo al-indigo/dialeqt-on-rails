@@ -4,12 +4,14 @@ class DictionariesController < ApplicationController
   # GET /dictionaries
   # GET /dictionaries.json
   def index
-    @dictionaries = Dictionary.all
+#    @dictionaries = Dictionary.all
+    @dictionaries = Dictionary.paginate(:page => params[:page])
   end
 
   # GET /dictionaries/1
   # GET /dictionaries/1.json
   def show
+    @words = @dictionary.words.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /dictionaries/new

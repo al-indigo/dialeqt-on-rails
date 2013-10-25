@@ -21,6 +21,10 @@ DialeqtOnRails::Application.routes.draw do
 
   resources :words
 
+  resources :etymology do
+    resources :words
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

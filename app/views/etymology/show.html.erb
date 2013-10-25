@@ -1,0 +1,87 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+<h1>Этимологические связи слова <%= @word.transcription %> </h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <td><b>Словарь</b></td>
+        <td><b>Транскрипция</b></td>
+          <td><b>Перевод</b></td>
+          <!--     <td><b>Аудиофайлы</b></td> -->
+
+        </tr>
+    </thead>
+    <tbody>
+<% Word.find_all_by_tag(@word.tag).each do |word| %>
+
+        <tr>
+          <td><%= word.dictionary.name %></td>
+          <td><%= word.transcription%></td>
+          <td><%= word.translation %></td>
+
+          <td>
+
+            <% word.word_praats.each do |praat| %>
+                <div>
+                  <p class="text-muted text-center"><%=praat.description %>
+                    <%= link_to("Скачать разметку", praat.markup.url, class: 'btn') %><%= link_to("Скачать звук", praat.sound.url, class: 'btn') %>
+                  </p>
+                </div>
+            <% end %>
+
+          </td>
+          <td>
+            <ol class="inline">
+              <% word.word_sounds.each do |sound| %>
+
+                  <li><p class="text-muted"><%= sound.description %></p>
+                    <audio controls>
+                      <source src="<%= sound.sound.url %>">
+                      </br>Ваш браузер не поддерживает HTML5, так что звук вы послушать не сможете. Используйте более современный браузер, это безопаснее.
+                    </audio></li>
+              <% end %>
+            </ol>
+          </td>
+          <td>
+            <%=
+                link_to_unless(word.paradigms.any?, "") do
+                  link_to("Показать парадигму слова", word, class: 'btn')
+                end
+            %>
+          </td>
+        </tr>
+
+<% end %>
+  </tbody>
+</table>
+
+<!--
+<p>
+  <strong>Word:</strong>
+  <%= @word.word %>
+</p>
+
+<p>
+  <strong>Transcription:</strong>
+  <%= @word.transcription %>
+</p>
+
+<p>
+  <strong>Translation:</strong>
+  <%= @word.translation %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @word.tag %>
+</p>
+
+<p>
+  <strong>Dictionary:</strong>
+  <%= @word.dictionary_id %>
+</p>
+-->
+
+
+<%= link_to_function "Вернуться к словарю", "history.back()" %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131021001342) do
+ActiveRecord::Schema.define(version: 20131111082125) do
 
   create_table "authors", force: true do |t|
     t.string   "name"
@@ -22,11 +22,21 @@ ActiveRecord::Schema.define(version: 20131021001342) do
     t.datetime "updated_at"
   end
 
+  create_table "authors_dictionaries", id: false, force: true do |t|
+    t.integer "dictionary_id", null: false
+    t.integer "author_id",     null: false
+  end
+
   create_table "classifications", force: true do |t|
     t.string   "name"
     t.integer  "majority"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "classifications_dictionaries", id: false, force: true do |t|
+    t.integer "dictionary_id",     null: false
+    t.integer "classification_id", null: false
   end
 
   create_table "dictionaries", force: true do |t|

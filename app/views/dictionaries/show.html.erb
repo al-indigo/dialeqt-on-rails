@@ -1,4 +1,50 @@
+<link rel="stylesheet" type="text/css" href="/360player.css" />
+<link rel="stylesheet" type="text/css" href="/360player-visualization.css" />
+<link rel="stylesheet" type="text/css" href="/flashblock.css" />
+
+
+<!-- special IE-only canvas fix -->
+<!--[if IE]><script type="text/javascript" src="/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="/berniecode-animator.js"></script>
+
+<script src="/soundmanager2-nodebug-jsmin.js"></script>
+<script type="text/javascript" src="/360player.js"></script>
+
+<script>
+    soundManager.setup({
+        url: '/swf/',
+        flashVersion: 8, // optional: shiny features (default = 8)
+        // optional: ignore Flash where possible, use 100% HTML5 mode
+        preferFlash: false
+
+    });
+    threeSixtyPlayer.config.scaleFont = (navigator.userAgent.match(/msie/i)?false:true);
+    threeSixtyPlayer.config.showHMSTime = true;
+
+    // enable some spectrum stuffs
+
+
+//    if (window.location.href.match(/html5/i)) {
+        // for testing IE 9, etc.
+//        soundManager.useHTML5Audio = true;
+//    }
+
+</script>
+<style>
+  .col-md-1 {min-width: 200px;}
+  .container {
+      background-color: #ffffff;
+      margin: 0px auto;
+      padding-right:24px;
+      padding-left:24px;
+  }
+  body {
+      background-image: url(/paper.png);
+  }
+</style>
+
 <div class="container">
+
 <p id="notice"><%= notice %></p>
 
 <h2>
@@ -10,9 +56,10 @@
 <p><%= @dictionary.description %></p>
 
 
-<table class="table table-striped">
+<table class="table table-hover">
   <thead>
    <tr>
+     <td></td>
      <td><b>Транскрипция</b></td>
      <td><b>Перевод</b></td>
 <!--     <td><b>Аудиофайлы</b></td> -->
@@ -22,11 +69,11 @@
   <tbody>
   <% @words.each do |word| %>
     <tr>
+      <td style="vertical-align:middle;"><%= word.word%></td>
+      <td style="vertical-align:middle;"><%= word.transcription%></td>
+      <td style="vertical-align:middle;"><%= word.translation %></td>
 
-      <td><%= word.transcription%></td>
-      <td><%= word.translation %></td>
-
-      <td>
+      <td style="vertical-align:middle;">
 
             <% word.word_praats.each do |praat| %>
             <div>
@@ -37,20 +84,19 @@
             <% end %>
 
       </td>
-      <td>
-        <ol class="inline">
-          <% word.word_sounds.each do |sound| %>
-
-              <li><p class="text-muted"><%= sound.description %></p>
-              <audio controls>
-                <source src="<%= sound.sound.url %>">
-                </br>Ваш браузер не поддерживает HTML5, так что звук вы послушать не сможете. Используйте более современный браузер, это безопаснее.
-              </audio></li>
-          <% end %>
-        </ol>
+      <td style="vertical-align:middle;">
+        <div class="row">
+            <div class="col-md-1">
+                <% word.word_sounds.each do |sound| %>
+                    <div class="ui360">
+                       <a href=<%= sound.sound.url(:mp3) %>><p class="text-muted"><%= sound.description %></p></a>
+                    </div>
+                <% end %>
+            </div>
+        </div>
 
       </td>
-      <td>
+      <td style="vertical-align:middle;">
         <%=
           link_to_if(word.tag.blank?, "") do
             link_to("Показать этимологические связи", etymology_path(word), class: 'btn')
@@ -70,5 +116,5 @@
 
 <!--<%= link_to 'Edit', edit_dictionary_path(@dictionary) %>  -->
 <%= link_to 'Back', dictionaries_path %>
-<%= will_paginate @words %>
+<%= will_paginate @words, renderer: BootstrapPagination::Rails %>
 </div>

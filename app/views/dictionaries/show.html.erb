@@ -31,17 +31,32 @@
 
 </script>
 <style>
-  .col-md-1 {min-width: 200px;}
+  .col-md-1 {min-width: 160px;}
   .container {
       background-color: #ffffff;
-      margin: 0px auto;
+
       padding-right:24px;
       padding-left:24px;
   }
   body {
-      background-image: url(/paper.png);
+      background-image: url(/binding_dark.png);
   }
 </style>
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+
+      <ul class="nav nav-pills">
+        <li><a href="/">Главная страница</a></li>
+        <li><a href="/about">О проекте</a></li>
+        <li><a href="/languages">О языках словарей</a></li>
+        <li><a href="/news">Новости</a></li>
+        <li><a href="/forum">Форум</a></li>
+        <li><a href="/rules">Правила работы</a></li>
+        <li><a href="/contacts">Контакты</a></li>
+      </ul>
+
+</nav>
 
 <div class="container">
 
@@ -53,15 +68,18 @@
 
 <h3>Описание</h3>
 Автор словаря: <%= Author.find(@dictionary.author_id).name %>
-<p><%= @dictionary.description %></p>
+<blockquote><%= @dictionary.description %></blockquote>
 
 
 <table class="table table-hover">
   <thead>
    <tr>
-     <td></td>
-     <td><b>Транскрипция</b></td>
-     <td><b>Перевод</b></td>
+     <th></th>
+     <th>Транскрипция</th>
+     <th>Перевод</th>
+     <th></th>
+     <th></th>
+     <th></th>
 <!--     <td><b>Аудиофайлы</b></td> -->
 
    </tr>
@@ -99,12 +117,12 @@
       <td style="vertical-align:middle;">
         <%=
           link_to_if(word.tag.blank?, "") do
-            link_to("Показать этимологические связи", etymology_path(word), class: 'btn')
+            link_to("этимологические связи", etymology_path(word), class: 'btn')
           end
         %>
         <%=
             link_to_unless(word.paradigms.any?, "") do
-              link_to("Показать парадигму слова", word, class: 'btn')
+              link_to("парадигма слова", word, class: 'btn')
             end
         %>
       </td>

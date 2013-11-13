@@ -1,24 +1,114 @@
-<p id="notice"><%= notice %></p>
+<link rel="stylesheet" type="text/css" href="/360player.css" />
+<link rel="stylesheet" type="text/css" href="/360player-visualization.css" />
+<link rel="stylesheet" type="text/css" href="/flashblock.css" />
 
-<p>
-  <strong>Word:</strong>
-  <%= @paradigm.word %>
-</p>
 
-<p>
-  <strong>Transcription:</strong>
-  <%= @paradigm.transcription %>
-</p>
+<!-- special IE-only canvas fix -->
+<!--[if IE]><script type="text/javascript" src="/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="/berniecode-animator.js"></script>
 
-<p>
-  <strong>Translation:</strong>
-  <%= @paradigm.translation %>
-</p>
+<script src="/soundmanager2-nodebug-jsmin.js"></script>
+<script type="text/javascript" src="/360player.js"></script>
 
-<p>
-  <strong>Word:</strong>
-  <%= @paradigm.word_id %>
-</p>
+<script>
+    soundManager.setup({
+        url: '/swf/',
+        flashVersion: 8, // optional: shiny features (default = 8)
+        // optional: ignore Flash where possible, use 100% HTML5 mode
+        preferFlash: false
 
-<%= link_to 'Edit', edit_paradigm_path(@paradigm) %> |
-<%= link_to 'Back', paradigms_path %>
+    });
+    threeSixtyPlayer.config.scaleFont = (navigator.userAgent.match(/msie/i)?false:true);
+    threeSixtyPlayer.config.showHMSTime = true;
+
+    // enable some spectrum stuffs
+
+
+    //    if (window.location.href.match(/html5/i)) {
+    // for testing IE 9, etc.
+    //        soundManager.useHTML5Audio = true;
+    //    }
+
+</script>
+<style>
+    .col-md-1 {min-width: 200px;}
+    .container {
+        background-color: #ffffff;
+
+        padding-right:24px;
+        padding-left:24px;
+    }
+    body {
+        background-image: url(/binding_dark.png);
+    }
+
+</style>
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+
+  <ul class="nav nav-pills">
+    <li><a href="/">Главная страница</a></li>
+    <li><a href="/about">О проекте</a></li>
+    <li><a href="/languages">О языках словарей</a></li>
+    <li><a href="/news">Новости</a></li>
+    <li><a href="/forum">Форум</a></li>
+    <li><a href="/rules">Правила работы</a></li>
+    <li><a href="/contacts">Контакты</a></li>
+  </ul>
+
+</nav>
+
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+  <h1>Парадигма слова  <%= @paradigm.word.transcription %></h1>
+
+  <table class="table table-hover table-striped table-condensed">
+    <thead>
+    <tr>
+      <th class="text-left">Транскрипция</th>
+      <th class="text-left">Перевод</th>
+      <th></th>
+      <th></th>
+      <!--     <td><b>Аудиофайлы</b></td> -->
+
+    </tr>
+    </thead>
+    <tbody>
+    <% Paradigm.find_all_by_word(@paradigm.word).each do |word| %>
+        <tr>
+          <td style="vertical-align:middle;"><p class="text-left"><%= word.transcription%></p></td>
+          <td style="vertical-align:middle; max-width: 350px;"><p class="text-left"><%= word.translation %></p></td>
+
+          <td style="vertical-align:middle;">
+
+            <% word.paradigm_praats.each do |praat| %>
+                <div>
+                  <!--<%=praat.description %>-->
+                  <p><small><%= link_to("Скачать разметку", praat.markup.url) %></small></p>
+                  <p><small><%= link_to("Скачать звук", praat.sound.url) %></small></p>
+                </div>
+            <% end %>
+
+          </td>
+          <td style="vertical-align:middle;">
+            <div class="row">
+              <div class="col-md-1">
+                <% word.paradigm_sounds.each do |sound| %>
+                    <div class="ui360">
+                      <a href=<%= sound.sound.url(:mp3) %>><p class="text-muted"><small><%= sound.description %></small></small></p></a>
+                    </div>
+                <% end %>
+              </div>
+            </div>
+
+          </td>
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Вернуться', :back %>
+</div>

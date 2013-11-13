@@ -31,7 +31,7 @@
 
 </script>
 <style>
-  .col-md-1 {min-width: 160px;}
+  .col-md-1 {min-width: 200px;}
   .container {
       background-color: #ffffff;
 
@@ -41,6 +41,7 @@
   body {
       background-image: url(/binding_dark.png);
   }
+
 </style>
 
 
@@ -66,17 +67,16 @@
   <%= @dictionary.name %>
 </h2>
 
-<h3>Описание</h3>
 Автор словаря: <%= Author.find(@dictionary.author_id).name %>
 <blockquote><%= @dictionary.description %></blockquote>
 
 
-<table class="table table-hover">
+<table class="table table-hover table-striped table-condensed">
   <thead>
    <tr>
      <th></th>
-     <th>Транскрипция</th>
-     <th>Перевод</th>
+     <th class="text-left">Транскрипция</th>
+     <th class="text-left">Перевод</th>
      <th></th>
      <th></th>
      <th></th>
@@ -87,17 +87,17 @@
   <tbody>
   <% @words.each do |word| %>
     <tr>
-      <td style="vertical-align:middle;"><%= word.word%></td>
-      <td style="vertical-align:middle;"><%= word.transcription%></td>
-      <td style="vertical-align:middle;"><%= word.translation %></td>
+      <td style="vertical-align:middle;"><p class="text-left"><%= word.word%></p></td>
+      <td style="vertical-align:middle;"><p class="text-left"><%= word.transcription%></p></td>
+      <td style="vertical-align:middle; max-width: 350px;"><p class="text-left"><%= word.translation %></p></td>
 
       <td style="vertical-align:middle;">
 
             <% word.word_praats.each do |praat| %>
             <div>
-              <p class="text-muted text-center"><%=praat.description %>
-                <%= link_to("Скачать разметку", praat.markup.url, class: 'btn') %><%= link_to("Скачать звук", praat.sound.url, class: 'btn') %>
-              </p>
+                <!--<%=praat.description %>-->
+                    <p><small><%= link_to("Скачать разметку", praat.markup.url) %></small></p>
+                    <p><small><%= link_to("Скачать звук", praat.sound.url) %></small></p>
             </div>
             <% end %>
 
@@ -107,7 +107,7 @@
             <div class="col-md-1">
                 <% word.word_sounds.each do |sound| %>
                     <div class="ui360">
-                       <a href=<%= sound.sound.url(:mp3) %>><p class="text-muted"><%= sound.description %></p></a>
+                       <a href=<%= sound.sound.url(:mp3) %>><p class="text-muted"><small><%= sound.description %></small></small></p></a>
                     </div>
                 <% end %>
             </div>
@@ -122,7 +122,7 @@
         %>
         <%=
             link_to_unless(word.paradigms.any?, "") do
-              link_to("парадигма слова", word, class: 'btn')
+              link_to("парадигма слова", paradigm_path(Paradigm.find_by_word(word)), class: 'btn')
             end
         %>
       </td>
@@ -133,6 +133,5 @@
 
 
 <!--<%= link_to 'Edit', edit_dictionary_path(@dictionary) %>  -->
-<%= link_to 'Back', dictionaries_path %>
 <%= will_paginate @words, renderer: BootstrapPagination::Rails %>
 </div>

@@ -1,0 +1,127 @@
+<link rel="stylesheet" type="text/css" href="/360player.css" />
+<link rel="stylesheet" type="text/css" href="/360player-visualization.css" />
+<link rel="stylesheet" type="text/css" href="/flashblock.css" />
+
+
+<!-- special IE-only canvas fix -->
+<!--[if IE]><script type="text/javascript" src="/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="/berniecode-animator.js"></script>
+
+<script src="/soundmanager2-nodebug-jsmin.js"></script>
+<script type="text/javascript" src="/360player.js"></script>
+
+<script>
+    soundManager.setup({
+        url: '/swf/',
+        flashVersion: 8, // optional: shiny features (default = 8)
+        // optional: ignore Flash where possible, use 100% HTML5 mode
+        preferFlash: false
+
+    });
+    threeSixtyPlayer.config.scaleFont = (navigator.userAgent.match(/msie/i)?false:true);
+    threeSixtyPlayer.config.showHMSTime = true;
+</script>
+<style>
+    .col-md-1 {min-width: 200px;}
+    .container {
+        background-color: #ffffff;
+
+        padding-right:24px;
+        padding-left:24px;
+    }
+    body {
+        background-image: url(/binding_dark.png);
+    }
+    .dictionary {
+        font-family: Calibri, Arial;
+    }
+
+</style>
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+
+  <ul class="nav nav-pills">
+    <li><a href="/">Главная страница</a></li>
+    <li><a href="/static_pages/about">О проекте</a></li>
+    <li class="disabled">О языках словарей</li>
+    <li class="disabled">Новости</li>
+    <li class="disabled">Форум</li>
+    <li class="disabled">Правила работы</li>
+    <li class="disabled">Контакты</li>
+  </ul>
+
+</nav>
+
+<div class="container">
+
+  <blockquote>Проект выполняется при финансовой поддержке грантов Президента РФ МД-6198.2013.6 (рук. Ю.В.Норманская) и Программы ОИФН Типологическое и историческое изучение языковых явлений в их соотношении с культурной эволюцией, реконструкция культуры по данным языка (рук. А.В.Дыбо)</blockquote>
+
+  <h1>Участники проекта</h1>
+  <div>
+    <a href="http://iling-ran.ru/beta/scholars/normanskaya">
+      Юлия Викторовна Норманская
+    </a>
+    <p class="text-info">
+       – руководитель проекта
+    </p>
+  </div>
+  <div>
+    <a href="http://iling-ran.ru/beta/scholars/dybo">
+      Анна Владимировна Дыбо
+    </a>
+    <p class="text-info">
+        – научный консультант проекта
+      </p>
+  </div>
+  <div>
+    <a href="http://www.ispras.ru/ru/modis/staff.php">
+      Олег Дмитриевич Борисенко
+    </a>
+    <p class="text-info">
+        – создатель программы LingvoDoc
+    </p>
+  </div>
+  <div>
+    <a href="http://iling-ran.ru/beta/scholars/amelina">
+      Мария Константиновна Амелина
+    </a>
+    <p class="text-info">
+    </p>
+  </div>
+  <div>
+    <a href="http://iling-ran.ru/beta/scholars/sheshenin">
+      Семен Евгеньевич Шешенин
+    </a>
+    <p class="text-info">
+    </p>
+  </div>
+  <div>
+    <p class="text-info">
+      Мария Петровна Кайсина
+    </p>
+  </div>
+  <h1>О программе</h1>
+  <div>
+    <p>Программа LingvoDoc представляет собой кроссплатформенную программу для персональных компьютеров,
+      предназначенную для качественной документации языков и их диалектов. Актуальную сборку для ОС
+      семейства Windows Вы можете скачать <a href="http://modis.ispras.ru/FTPContent/dialeqt/LingvoDoc-0.8.zip">здесь</a>. Версия для ОС Windows не требует никаких дополнительных действий для работы с программой,
+      достаточно распаковать архив в удобном для Вас месте и запустить файл LingvoDoc.exe, находящийся в папке LingvoDoc.</p>
+    <p>Сборки для операционных систем Mac OS X и *nix на данный момент не проводятся, но Вы можете провести сборку из исходных кодов самостоятельно.</p>
+    <p>Для сборки Вам необходимо <a href="http://download.qt-project.org/development_releases/qt/5.2/5.2.0-beta1/">скачать фреймворк QT5.2-beta</a> и провести стандартный процесс сборки проекта
+      QT.
+      Кроме того, для отображения размеченных спектрограмм, вам необходимо самостоятельно скачать программы
+      <a href="http://www.fon.hum.uva.nl/praat/">Praat</a> и <a href="http://www.fon.hum.uva.nl/praat/sendpraat.html">sendpraat</a> и распаковать их в папку со сборкой программы.</p>
+    <p>Исходные коды на текущий момент распространяются под лицензией GNU Public License V2 и располагаются на
+      <a href="https://github.com/al-indigo/Dialeqt">GitHub <img src="/images/GitHub-Mark-32px.png"></a>.</p>
+  </div>
+  <h1>Контакты</h1>
+  <div>
+    <p>Вопросы по поводу работы программы LingvoDoc задавайте по адресу
+    <a href="mailto:al@somestuff.ru">al@somestuff.ru</a>         </p>
+    <p>
+
+
+    </p>
+  </div>
+</div>

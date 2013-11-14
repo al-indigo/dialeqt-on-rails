@@ -1,4 +1,10 @@
 DialeqtOnRails::Application.routes.draw do
+  get "static_pages/about"
+  get "static_pages/languages"
+  get "static_pages/news"
+  get "static_pages/forum"
+  get "static_pages/rules"
+  get "static_pages/contacts"
   resources :paradigm_sounds
 
   resources :paradigm_praats

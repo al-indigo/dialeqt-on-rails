@@ -70,7 +70,13 @@
   <%= @dictionary.name %>
 </h2>
 
-Автор словаря: <%= Author.find(@dictionary.author_id).name %>
+<p><i>Авторы словаря:</i></p>
+  <ul>
+  <% @dictionary.authors.each do |author| %>
+    <li><%= author.name %></li>
+  <% end %>
+  </ul>
+
 <blockquote><%= @dictionary.description %></blockquote>
 
 

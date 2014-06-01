@@ -127,6 +127,7 @@
         <%=
           link_to_if(word.tag.blank?, "") do
             link_to("этимологические связи", etymology_path(word), class: 'btn')
+            word.group(:tag).count - 1
           end
         %>
         <%=

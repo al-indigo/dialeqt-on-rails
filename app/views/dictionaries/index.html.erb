@@ -29,18 +29,80 @@
 <div class="container">
 <h1>LingvoDoc</h1>
 <h2>Этимологические базы диалектных аудиословарей</h2>
+<table class="table table-striped" id="dictionaries1">
+  <thead>
+    <tr>
+      <th>Мансийские языки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/4">Кондинский диалект мансийского языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/5">Низямский диалект хантыйского языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/11">Салымский диалект хантыйского языка</a></td>
+    </tr>
+  </tbody>
+</table>
 
+<table class="table table-striped" id="dictionaries2">
+  <thead>
+    <tr>
+      <th>Ненецкие языки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/7">Большеземельский диалект тундрового наречия ненецкого языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/6">Гыданский диалект тундрового наречия ненецкого языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/15">Канинский диалект тундрового наречия ненецкого языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/1">Ямальский диалект тундрового наречия ненецкого языка</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped" id="dictionaries3">
+  <thead>
+    <tr>
+      <th>Селькупские языки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/13">Нарымский диалект селькупского языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/3">Нарымский диалект селькупского языка (полная версия - в разработке)</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-striped" id="dictionaries4">
+  <thead>
+    <tr>
+      <th>Удмуртские языки</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/8">Бавлинскоий говор периферийно-южного диалекта удмуртского языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/10">Бесермянское наречие удмуртского языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/2">Бесермянский диалект удмуртского языка, говор д. Шамардан</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/12">Срединный говор удмуртского языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/9">Средне-чепецкий диалект северного наречия удмуртского языка</a></td>
+      <td><a href="http://dialect.at.ispras.ru/dictionaries/14">Центрально-южный диалект удмуртского языка</a></td>
+    </tr>
+  </tbody>
+</table>
+<!--
 <table class="table table-striped" id="dictionaries">
-<!--  <thead>
+  <thead>
     <tr>
       <th>Словари</th>
     </tr>
   </thead>
--->
+
   <tbody>
     <% @dictionaries.each do |dictionary| %>
       <tr>
-        <td><%= link_to dictionary.name, dictionary %></td>
+        <td><%= link_to dictionary.name, dictionary %></td>-->
         <!--        <td><%= dictionary.description %></td>
                 <td><%= dictionary.identifier %></td>
         <td><%= dictionary.author_id %></td>
@@ -70,7 +132,7 @@
   <p>Мы надеемся, что данная программа позволит создавать словари нового типа — аудиословари, дающие возможность этимологически систематизировать лингвистический материал и верифицировать его с помощью анализаторов звучащей речи, что, несомненно, очень важно при документации редких и исчезающих языков.</p>
   <p>Очевидно, что этимологические базы аудиословарей будут тем информативнее, чем больше ученых введут в них свои экспедиционные материалы по различным языкам мира. В целом ряде отделов и на многих кафедрах хранятся оцифрованные и неоцифрованные архивы полевых записей, которые представляют собой огромную ценность, ведь многие из задокументированных языков уже исчезли или находятся на грани исчезновения.</p>
   <p>Мы призываем Вас заняться оцифровкой экспедиционных аудиозаписей, затем нарезать их на отдельные звуковые файлы со словарными произнесениями, загрузить их в программу, снабдив хотя бы переводом (остальные опции можно будет добавлять постепенно), и вывесить на сайте «LingvoDoc» («Этимологические базы диалектных аудиословарей»). Это позволит ввести в научный оборот важнейшие материалы, сделав их общедоступными.</p>
-  <p>Программу находится в состоянии активной разработки и пока недоступна для скачивания.</p>
+  <p>Программа находится в состоянии активной разработки и пока недоступна для скачивания.</p>
   </div>
 
   <br>

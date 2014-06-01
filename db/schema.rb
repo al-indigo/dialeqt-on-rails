@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 20131111082125) do
   end
 
   create_table "words", force: true do |t|
-    t.text   "word"
-    t.text   "transcription"
-    t.text   "translation"
+    t.text     "word"
+    t.text     "transcription"
+    t.text     "translation"
     t.string   "tag"
     t.integer  "dictionary_id"
     t.datetime "created_at"

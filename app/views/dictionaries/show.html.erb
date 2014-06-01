@@ -130,7 +130,7 @@
           end
         %>
         <% if(!word.tag.blank?) then %>
-            <span class="badge"><%= @words.find_all_by_tag(word.tag).count + 1 %></span>
+            <span class="badge"><%= @allwords.where(:tag => word.tag).count - 1 %></span>
         <% end %>
         <%=
             link_to_unless(word.paradigms.any?, "") do

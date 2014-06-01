@@ -12,6 +12,7 @@ class DictionariesController < ApplicationController
   # GET /dictionaries/1.json
   def show
     @words = @dictionary.words.paginate(:page => params[:page], :per_page => 10, :order => "transcription ASC")
+    @allwords = Word.all
   end
 
   # GET /dictionaries/new

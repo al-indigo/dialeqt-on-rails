@@ -85,7 +85,7 @@
     <tbody>
     <% Word.find_all_by_tag(@word.tag).each do |word| %>
         <tr>
-          <td style="vertical-align:middle;"><%= word.dictionary.name %></td>
+          <td style="vertical-align:middle;"><%= link_to(word.dictionary.name, word.dictionary) %></td>
           <td style="vertical-align:middle;"><p class="text-left dictionary"><%= word.word%></p></td>
           <td style="vertical-align:middle;"><p class="text-left dictionary"><%= word.transcription%></p></td>
           <td style="vertical-align:middle; max-width: 350px;"><p class="text-left dictionary"><%= word.translation %></p></td>
